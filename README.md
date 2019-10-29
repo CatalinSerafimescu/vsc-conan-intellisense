@@ -17,3 +17,4 @@ class MyProject(ConanFile):
         update_cpp_tools(self, conanfile_path=__file__)
 ```
 
+Then, run ```conan install```. c_cpp_properties.json should be updated and Intellisense should find your dependencies.
