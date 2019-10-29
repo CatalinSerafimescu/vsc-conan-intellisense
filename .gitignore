@@ -1,0 +1,4 @@
+build
+dist
+docs/_*
+parktoma_vscconan.egg-info
