@@ -43,8 +43,8 @@ def update_cpp_tools(conanfile, conanfile_path=None, c_cpp_properties_path=None,
 
         try:
             include_paths = [os.path.abspath(os.path.realpath(include_path))
-                for dep in conanfile.deps_cpp_info.deps 
-                for include_path in conanfile.deps_cpp_info[dep].include_paths]
+                for _, dep in conanfile.dependencies.items()
+                for include_path in dep.cpp_info.includedirs]
         except Exception as e:
             raise CppToolsUpdateFailure('Failed to get include path information found in conanfile object')
 
@@ -84,4 +84,4 @@ def update_cpp_tools(conanfile, conanfile_path=None, c_cpp_properties_path=None,
     except CppToolsUpdateFailure as e:
         if throw_errors:
             raise
-        conanfile.output.warn(str(e))
+        conanfile.output.warning(str(e))
