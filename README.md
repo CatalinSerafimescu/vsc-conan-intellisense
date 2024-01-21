@@ -14,7 +14,8 @@ from parktoma.vscconan import update_cpp_tools
 
 class MyProject(ConanFile):
     #...
-    def imports(self):
+    def generate(self):
+        .....
         update_cpp_tools(self, conanfile_path=__file__)
 ```
 
